@@ -1,0 +1,16 @@
+{
+    "restaurant": [
+        {
+            "price": 200,
+            "name": "Cheesecake",
+            "category": "dessert",
+            "id": 1
+        },
+        {
+            "price": 300,
+            "name": "Sirloin",
+            "category": "meats",
+            "id": 2
+        } 
+    ]
+}
