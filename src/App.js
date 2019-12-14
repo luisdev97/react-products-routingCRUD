@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
 import ProductsList from './components/ProductsList';
 import ProductsForm from './components/ProductsForm';
 import EditProductForm from './components/EditProductForm';
@@ -7,15 +8,30 @@ import Product from './components/Product';
 import Header from './components/Header';
 
 function App() {
+
+  const [ products, setProducts ] = useState([]);
+
+  const getProducts = async() => {
+    const res = await axios.get('http://localhost:4000/restaurant');
+    console.log(res);
+    setProducts(res.data);
+  }
+
+  useEffect(() => {
+    getProducts();
+  },[]);
+
   return (
     <Router>
       <Header/>
       <main className="container mt-5">
         <Switch>
-          
+
+          <Route path="/products" 
+                 render={ () => <ProductsList products = { products } /> }/>
+
           <Route path="/products/new" component={ ProductsForm }/>
-          <Route path="/products" component={ ProductsList }/>
-          <Route path="/edit-product/:id" component={ EditProductForm }/>
+          <Route path="/products/edit/:id" component={ EditProductForm }/>
           <Route path="/products/:id" component={ Product }/>
 
         </Switch>
