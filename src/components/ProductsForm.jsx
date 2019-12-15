@@ -1,23 +1,35 @@
 import React, { useState } from 'react';
-
+import Error from './Error';
 
 const ProductsForm = () => {
 
     const [ name, setName ] = useState('');
     const [ price, setPrice ] = useState('');
     const [ category, setCategory ] = useState('');
+    const [ error, setError ] = useState(false);
 
     const getRadioValue = e => {
         setCategory(e.target.value)
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        if(name === '' || price === '' || category === '')
+            setError(true);
+        else{
+            setError(false);
+        }
+
     }
 
     return (
         
         <div className="col-md-8 mx-auto ">
             <h1 className="text-center">Agregar Nuevo Producto</h1>
-
+            { error ? <Error messagge="All fields are required"/> : null}
             <form
                 className="mt-5"
+                onSubmit={ handleSubmit }
             >
                 <div className="form-group">
                     <label>Nombre Platillo</label>
