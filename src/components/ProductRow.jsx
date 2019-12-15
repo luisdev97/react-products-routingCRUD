@@ -12,7 +12,7 @@ const ProductRow = ({ product }) => {
         <li data-category={ category } className="list-group-item d-flex justify-content-between align-items-center">
             <p>
                 { name + ' '}
-                <span className="font-weigth-bold">${ price }</span>
+                <span className="font-weight-bold">${ price }</span>
             </p>
 
             <div>

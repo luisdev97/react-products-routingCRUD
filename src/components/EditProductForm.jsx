@@ -1,8 +1,10 @@
 import React from 'react';
 
-const EditProductForm = () => {
+const EditProductForm = ({ product }) => {
+    console.log(product);
+    //const { id, name, price, category } = product;
     return (
-        <h1 className="text-center">Edit product</h1>
+        <h1 className="text-center">Edit product </h1>
     );
 };
 

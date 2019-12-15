@@ -23,6 +23,18 @@
       "price": "1",
       "category": "postre",
       "id": 4
+    },
+    {
+      "name": "ensalada cesar",
+      "price": "25",
+      "category": "ensalada",
+      "id": 5
+    },
+    {
+      "name": "metallica",
+      "price": "12",
+      "category": "bebida",
+      "id": 6
     }
   ]
 }

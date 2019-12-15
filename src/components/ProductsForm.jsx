@@ -5,7 +5,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 
-const ProductsForm = ({ history }) => {
+const ProductsForm = ({ history, setReloadProducts }) => {
 
     const [ name, setName ] = useState('');
     const [ price, setPrice ] = useState('');
@@ -44,7 +44,7 @@ const ProductsForm = ({ history }) => {
                     text: 'Error processing the form'
                   })
             }
-
+            setReloadProducts(true);
             history.push('/products');
         }
 
@@ -53,58 +53,58 @@ const ProductsForm = ({ history }) => {
     return (
         
         <div className="col-md-8 mx-auto ">
-            <h1 className="text-center">Agregar Nuevo Producto</h1>
+            <h1 className="text-center">Add new Product</h1>
             { error ? <Error messagge="All fields are required"/> : null}
             <form
                 className="mt-5"
                 onSubmit={ handleSubmit }
             >
                 <div className="form-group">
-                    <label>Nombre Platillo</label>
+                    <label>Name of the dish</label>
                     <input 
                         type="text" 
                         className="form-control" 
-                        name="nombre" 
-                        placeholder="Nombre Platillo"
+                        name="name" 
+                        placeholder="Name of the dish"
                         onChange = { e => setName(e.target.value) }
                     />
                 </div>
 
                 <div className="form-group">
-                    <label>Precio Platillo</label>
+                    <label>Price of the dish</label>
                     <input 
                         type="number" 
                         className="form-control" 
-                        name="precio"
-                        placeholder="Precio Platillo"
+                        name="price"
+                        placeholder="Price of the dish"
                         onChange = { e => setPrice(e.target.value) }
                     />
                 </div>
 
-                <legend className="text-center">Categoría:</legend>
+                <legend className="text-center">Category:</legend>
                 <div className="text-center">
                 <div className="form-check form-check-inline">
                     <input 
                         className="form-check-input" 
                         type="radio" 
-                        name="categoria"
+                        name="category"
                         value="postre"
                         onChange={ getRadioValue }
                     />
                     <label className="form-check-label">
-                        Postre
+                        Dessert
                     </label>
                 </div>
                 <div className="form-check form-check-inline">
                     <input 
                         className="form-check-input" 
                         type="radio" 
-                        name="categoria"
+                        name="category"
                         value="bebida"
                         onChange={ getRadioValue }
                     />
                     <label className="form-check-label">
-                        Bebida
+                        Drink
                     </label>
                 </div>
 
@@ -112,12 +112,12 @@ const ProductsForm = ({ history }) => {
                     <input 
                         className="form-check-input" 
                         type="radio" 
-                        name="categoria"
+                        name="category"
                         value="cortes"
                         onChange={ getRadioValue }
                     />
                     <label className="form-check-label">
-                        Cortes
+                        Cuts
                     </label>
                 </div>
 
@@ -125,17 +125,17 @@ const ProductsForm = ({ history }) => {
                     <input 
                         className="form-check-input" 
                         type="radio" 
-                        name="categoria"
+                        name="category"
                         value="ensalada"
                         onChange={ getRadioValue }
                     />
                     <label className="form-check-label">
-                        Ensalada
+                        Salads
                     </label>
                 </div>
                 </div>
 
-                <input type="submit" className="font-weight-bold text-uppercase mt-5 btn btn-primary btn-block py-3" value="Agregar Producto" />
+                <input type="submit" className="font-weight-bold text-uppercase mt-5 btn btn-primary btn-block py-3" value="Add Product" />
             </form>
         </div>
         
