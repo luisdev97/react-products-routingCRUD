@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Error from './Error';
+import axios from 'axios';
 
 const ProductsForm = () => {
 
@@ -12,12 +13,23 @@ const ProductsForm = () => {
         setCategory(e.target.value)
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         if(name === '' || price === '' || category === '')
             setError(true);
         else{
             setError(false);
+
+            try{
+                const res = await axios.post('http://localhost:4000/restaurant', {
+                    name,
+                    price,
+                    category
+                });
+                console.log('res', res);
+            }catch(error){
+                console.log('error', error);
+            }
         }
 
     }

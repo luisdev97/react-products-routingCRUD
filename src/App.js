@@ -13,7 +13,6 @@ function App() {
 
   const getProducts = async() => {
     const res = await axios.get('http://localhost:4000/restaurant');
-    console.log(res);
     setProducts(res.data);
   }
 

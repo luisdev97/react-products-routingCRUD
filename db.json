@@ -1,16 +1,28 @@
 {
-    "restaurant": [
-        {
-            "price": 200,
-            "name": "Cheesecake",
-            "category": "dessert",
-            "id": 1
-        },
-        {
-            "price": 300,
-            "name": "Sirloin",
-            "category": "meats",
-            "id": 2
-        } 
-    ]
+  "restaurant": [
+    {
+      "price": 200,
+      "name": "Cheesecake",
+      "category": "dessert",
+      "id": 1
+    },
+    {
+      "price": 300,
+      "name": "Sirloin",
+      "category": "meats",
+      "id": 2
+    },
+    {
+      "name": "plato de carne",
+      "price": "30",
+      "category": "cortes",
+      "id": 3
+    },
+    {
+      "name": "leche",
+      "price": "1",
+      "category": "postre",
+      "id": 4
+    }
+  ]
 }
