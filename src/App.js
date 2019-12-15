@@ -27,13 +27,12 @@ function App() {
       <main className="container mt-5">
         <Switch>
 
-          <Route path="/products" 
-                 render={ () => <ProductsList products = { products } /> }/>
-
           <Route path="/products/new" component={ ProductsForm }/>
           <Route path="/products/edit/:id" component={ EditProductForm }/>
           <Route path="/products/:id" component={ Product }/>
-
+          <Route path="/products" 
+                 render={ () => <ProductsList products = { products } /> }/>
+                 
         </Switch>
       </main>
 
