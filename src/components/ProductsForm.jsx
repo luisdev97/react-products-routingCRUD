@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import Error from './Error';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
-const ProductsForm = () => {
+
+const ProductsForm = ({ history }) => {
 
     const [ name, setName ] = useState('');
     const [ price, setPrice ] = useState('');
@@ -26,10 +29,23 @@ const ProductsForm = () => {
                     price,
                     category
                 });
-                console.log('res', res);
+
+                if(res.status === 201)
+                    Swal.fire(
+                        'Product added',
+                        'The product was added',
+                        'success'
+                    );
             }catch(error){
                 console.log('error', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Error processing the form'
+                  })
             }
+
+            history.push('/products');
         }
 
     }
@@ -126,4 +142,4 @@ const ProductsForm = () => {
     );
 };
 
-export default ProductsForm;
+export default  withRouter(ProductsForm);
