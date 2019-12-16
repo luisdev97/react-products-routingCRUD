@@ -88,7 +88,7 @@ const ProductsForm = ({ history, setReloadProducts }) => {
                         className="form-check-input" 
                         type="radio" 
                         name="category"
-                        value="postre"
+                        value="desserts"
                         onChange={ getRadioValue }
                     />
                     <label className="form-check-label">
@@ -100,7 +100,7 @@ const ProductsForm = ({ history, setReloadProducts }) => {
                         className="form-check-input" 
                         type="radio" 
                         name="category"
-                        value="bebida"
+                        value="drinks"
                         onChange={ getRadioValue }
                     />
                     <label className="form-check-label">
@@ -113,11 +113,11 @@ const ProductsForm = ({ history, setReloadProducts }) => {
                         className="form-check-input" 
                         type="radio" 
                         name="category"
-                        value="cortes"
+                        value="meats"
                         onChange={ getRadioValue }
                     />
                     <label className="form-check-label">
-                        Cuts
+                        Meats
                     </label>
                 </div>
 
@@ -126,7 +126,7 @@ const ProductsForm = ({ history, setReloadProducts }) => {
                         className="form-check-input" 
                         type="radio" 
                         name="category"
-                        value="ensalada"
+                        value="salads"
                         onChange={ getRadioValue }
                     />
                     <label className="form-check-label">

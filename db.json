@@ -3,7 +3,7 @@
     {
       "price": 200,
       "name": "Cheesecake",
-      "category": "dessert",
+      "category": "desserts",
       "id": 1
     },
     {
@@ -15,25 +15,25 @@
     {
       "name": "plato de carne",
       "price": "30",
-      "category": "cortes",
+      "category": "meats",
       "id": 3
     },
     {
       "name": "leche",
       "price": "1",
-      "category": "postre",
+      "category": "desserts",
       "id": 4
     },
     {
       "name": "ensalada cesar",
       "price": "25",
-      "category": "ensalada",
+      "category": "salads",
       "id": 5
     },
     {
       "name": "metallica",
       "price": "12",
-      "category": "bebida",
+      "category": "drinks",
       "id": 6
     }
   ]
