@@ -1,11 +1,12 @@
 import React from 'react';
 import ProductRow  from './ProductRow';
 
-const ProductsList = ({ products }) => {
 
-   
+const ProductsList = ({ products, setReloadProducts }) => {
+
+    
     const renderProducts = products => {
-        return products.map( product => <ProductRow key={ product.id }product={ product }/>)
+        return products.map( product => <ProductRow key={ product.id }product={ product } setReloadProducts={ setReloadProducts }/>)
     }
 
     return (

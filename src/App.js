@@ -43,8 +43,12 @@ function App() {
           <Route path="/products/:id" component={ Product }/>
 
           <Route path="/products" 
-                 render={ () => <ProductsList products = { products } 
-          /> }/>
+                 render={ () => 
+                 <ProductsList 
+                 products = { products } 
+                 setReloadProducts={ setReloadProducts }
+                 /> 
+          }/>
                  
         </Switch>
       </main>

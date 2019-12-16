@@ -1,12 +1,6 @@
 {
   "restaurant": [
     {
-      "price": 200,
-      "name": "Cheesecake",
-      "category": "desserts",
-      "id": 1
-    },
-    {
       "price": 300,
       "name": "Sirloin",
       "category": "meats",
@@ -19,22 +13,10 @@
       "id": 3
     },
     {
-      "name": "leche",
-      "price": "1",
-      "category": "desserts",
+      "name": "Milk",
+      "price": "14",
+      "category": "drinks",
       "id": 4
-    },
-    {
-      "name": "ensalada cesar",
-      "price": "25",
-      "category": "salads",
-      "id": 5
-    },
-    {
-      "name": "megadeth",
-      "price": "95",
-      "category": "meats",
-      "id": 6
     }
   ]
 }
