@@ -37,7 +37,7 @@ function App() {
                  render={ () => <ProductsForm setReloadProducts={ setReloadProducts }/> }
           />
           <Route path="/products/edit/:id" 
-                 render={ ({ match }) => <EditProductForm product={ getProductFromList(match.params.id) }/> }
+                 render={ ({ match }) => <EditProductForm product={ getProductFromList(match.params.id) } setReloadProducts={ setReloadProducts}/> }
           />
           
           <Route path="/products/:id" component={ Product }/>

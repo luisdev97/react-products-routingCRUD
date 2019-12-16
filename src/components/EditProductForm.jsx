@@ -1,10 +1,14 @@
 import React, { useState, useRef } from 'react';
+import { withRouter } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import axios from 'axios';
+
 import Error from './Error';
-const EditProductForm = ({ product }) => {
+const EditProductForm = ({ product, history, setReloadProducts }) => {
     const { category } = product;
 
-    const price = useRef('');
-    const name = useRef('');
+    const priceRef = useRef('');
+    const nameRef = useRef('');
 
     const [ categoryValue , setCategory ] = useState('');
     const [ error, setError ] = useState(false);
@@ -15,8 +19,42 @@ const EditProductForm = ({ product }) => {
     }
 
 
-    const handleSubmit = e => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
+
+        let category = (categoryValue === '') ? product.category : categoryValue;
+
+        const editProduct = {
+            name : nameRef.current.value,
+            price: priceRef.current.value,
+            category
+        }
+        
+        if(editProduct.name === '' || editProduct.price === '' || editProduct.category === '')
+            setError(true);
+        else{
+            setError(false);
+
+            try{
+                const res = await axios.put(`http://localhost:4000/restaurant/${ product.id}`, editProduct);
+
+                if(res.status === 200)
+                    Swal.fire(
+                        'Product modified',
+                        'The product was modified',
+                        'success'
+                    );
+            }catch(error){
+                console.log('error', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Error processing the form'
+                  })
+            }
+            setReloadProducts(true);
+            history.push('/products');
+        }
     }
 
 
@@ -35,7 +73,7 @@ const EditProductForm = ({ product }) => {
                         className="form-control" 
                         name="name" 
                         placeholder="Name of the dish"
-                        ref={ name }
+                        ref={ nameRef }
                         defaultValue={ product.name }
                     />
                 </div>
@@ -47,7 +85,7 @@ const EditProductForm = ({ product }) => {
                         className="form-control" 
                         name="price"
                         placeholder="Price of the dish"
-                        ref={ price }
+                        ref={ priceRef }
                         defaultValue={ product.price }
                     />
                 </div>
@@ -87,7 +125,7 @@ const EditProductForm = ({ product }) => {
                         className="form-check-input" 
                         type="radio" 
                         name="category"
-                        value="cortes"
+                        value="meats"
                         onChange={ getRadioValue }
                         defaultChecked={ (category === 'meats') }
                     />
@@ -101,7 +139,7 @@ const EditProductForm = ({ product }) => {
                         className="form-check-input" 
                         type="radio" 
                         name="category"
-                        value="ensalada"
+                        value="salads"
                         onChange={ getRadioValue }
                         defaultChecked={ (category === 'salads') }
                     />
@@ -117,4 +155,4 @@ const EditProductForm = ({ product }) => {
     );
 };
 
-export default EditProductForm;
+export default withRouter(EditProductForm);
